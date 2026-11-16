@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+      * {
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+        
+        }
+        
+        body{
+            font-family: Arial, sans-serif;
+            padding: 30px 100px;
+        }
+        
+        .background-container {
+            top: 0;
+            left: 0;
+            width:100%;
+            height: 100%;
+            background-image: url("background.jpg");
+            position:fixed;
+            background-size: cover;
+            z-index: -1;
+        
+        }
+          /*Меню*/
+        .menu {
+            background: white;
+            padding: 20px 60px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;          
+        }
+        
+        /*Дизайн кнопки*/
+        .menu button {
+            background: none; /*фон кнпки*/
+            border: none; /*края кнпки*/
+            font-size: 24px; /*шрифт размер*/
+            color: #555;
+            margin:5px 10px;
+            padding: 8px 12px;
+            font-family:  Arial, sans-serif; /*шрифт*/
+        }
+        
+        .menu button:hover {
+            background: #eaf4fb;
+            color: #2b6cb0;
+        }
+        
+        
+        /*Вкладки*/
+        .tab {
+            display:none;
+            margin: 0 auto;
+        }
+        
+        .tab.active {
+            display: block;
+        }
+        
+         h1 {
+            font-family: Georgia, serif;
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #1e3a5f;
+        }
+
+         h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: #1e3a5f;
+        }
+
+         h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            color: #333;
+        }
+
+         p {
+           line-height: 1.6;
+           margin-bottom: 26px;
+           color: #555;
+            font-size: 24px
+        }
+        
+      
+         #about, #portfolio, #skills, #contacts {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+        }
+        
+        
+        /*Главная*/
+        .home {
+            display:flex;
+            gap: 25px;
+            align-items: stretch;
+            
+        }
+        
+        .photo {
+            width: 450px;
+            height: 500px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            
+        }
+        
+        .photo img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+           
+           
+        }
+        .info {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            height: 500px;
+            padding: 90px 70px; /* Внутренние отступы текста */
+        }
+        
+        /* Стиль для текста вуза */
+        .university {
+            color: #888;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-top: 2px solid #eee; /* разделительная полоса */
+            padding-top: 15px;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+        
+        /*Дизайн Обо мне*/
+        
+        .about-list {
+            list-style: none;  /*убирает точки в списке*/
+            margin-top: 20px;
+        }
+        
+        .about-list li {
+            background: #f7fafc; 
+            padding: 15px; /* ширина пунктов*/
+            margin-bottom: 10px; /*отступы между пунктами списков*/
+            border-radius: 4px;
+            font-size: 24px;
+            
+        }
+        
+         /*Дизайн Портфолио*/
+        .project {
+            background: #f7fafc;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        
+        .project span {
+            background: #e2e8f0;
+            color: #555;
+            font-size: 16px;
+            padding: 6px 10px;
+            border-radius: 10px;
+            margin-right: 5px;
+        }
+        
+        /*Дизайн Навыки*/
+        .skills-list {
+            margin-bottom: 10px;
+        }
+        
+        .skills-list span {
+            display: inline-block;
+            background: #e2e8f0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 5px 5px 5px 0;
+            font-size: 20px;
+        }
+        
+        /*Дизайн Контакты*/
+        .content-info{
+            align-items:center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+        }
+        
+    </style>
+</head>
+    
+<body>
+    <div class ="background-container"></div>
+     <div class ="menu">
+         <button onclick="show('home')">Главная</button>
+         <button onclick="show('about')">Обо мне</button>
+         <button onclick="show('portfolio')">Портфолио</button>
+         <button onclick="show('skills')">Навыки</button>
+         <button onclick="show('contacts')">Контакты</button>
+     </div>
+    
+     <!--Главная--> 
+    <div id="home" class = "tab active">
+        <div class = "home">
+            <div class="photo">
+             <img src="image1.jpeg">
+            </div>
+            <div class="info">
+                <h1>Нерушева Виктория Сергеевна</h1>
+                <p>Студент группы ПИ-(3,6)-2024-1УД</p>
+                <div class="university">
+                    ФГБОУ ВО «ВОРОНЕЖСКИЙ ГОСУДАРСТВЕННЫЙ АГРАРНЫЙ УНИВЕРСИТЕТ ИМЕНИ ИМПЕРАТОРА ПЕТРА I»
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Обо мне--> 
+    <div id ="about" class = "tab">
+        <h2>Обо мне</h2>
+        <p >Привет! Меня зовут Виктория. Сейчас я совмещаю учёбу с работой — работаю системным администратором. Это помогает мне быстро решать проблемы и понимать, как устроены IT-системы.</p>
+        <p>Моя главная цель — стать разработчиком. Мне нравится создавать что-то новое и видеть, как код работает на экране.</p>
+        <p>В свободное время играю в волейбол. Спорт научил меня работать в команде.</p>
+        
+        <ul class="about-list">
+            <li><strong>Работа:</strong> системный администратор</li>
+            <li><strong>Спорт:</strong> волейбол</li>
+            <li><strong>Мечта:</strong> стать разработчиком</li>
+            <li><strong>Развитите</strong> постоянно учусь новому</li>
+        </ul>
+    </div>
+    
+   <!-- Портфолио -->
+  <div id="portfolio" class="tab">
+    <h2>Мои проекты</h2>
+
+    <div class="project">
+      <h3>Приложение для изучения английского языка</h3>
+      <div class="tags">
+        <span>C#</span>
+        <span>EF Core</span>
+        <span>MySQL</span>
+        <span>Windows Forms</span>
+      </div>
+      <p>Десктопное приложение для пополнения словарного запаса. Пользователь вносит слова, а программа генерирует тесты для повторения.</p>
+    </div>
+
+    <div class="project">
+      <h3>Учётная конфигурация в 1С</h3>
+      <div class="tags">
+        <span>1С: Предприятие</span>
+        <span>Конфигурирование</span>
+      </div>
+      <p>Простая конфигурация для учёта инвентаря. Реализованы справочники, документы и формы.</p>
+    </div>
+
+    <div class="project">
+      <h3>Сайт для смузи-бара</h3>
+      <div class="tags">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+      </div>
+      <p>Адаптивный одностраничный сайт с меню напитков и контактной информацией.</p>
+    </div>
+  </div>
+    
+    <div id="skills" class="tab">
+        <h2>Мои навыки</h2>
+        <h3>Технологии</h3>
+        <div class="skills-list">
+            <span>Linux</span>
+            <span>1С: Конфигурирование</span>
+            <span>C# / .NET</span>
+            <span>EF Core / MySQL</span>
+            <span>HTML / CSS / JavaScript</span>
+        </div>
+        
+        <h3>Личные качества</h3>
+        <div class="skills-list">
+            <span>Стрессоустойчивость</span>
+            <span>Быстрая обучаемость</span>
+            <span>Командная работа</span>
+            <span>Аналитическое мышление</span>       
+        </div>
+    </div>
+    
+    <div id="contacts" class="tab">
+        <div class="content-info">
+            <h2>Контакты</h2>
+        <p>Email: postal@mail.ru</p>
+        <p>Телефон: +7 (999) 123-45-67</p>
+        </div>
+    </div>
+    
+<script>
+    //функция переключения между вкладок меню
+    function show(id){
+        document.getElementById('home').style.display='none';
+          document.getElementById('about').style.display='none';
+          document.getElementById('portfolio').style.display='none';
+          document.getElementById('skills').style.display='none';
+          document.getElementById('contacts').style.display='none';
+        
+        document.getElementById(id).style.display='block';
+    }    
+</script>
+</body>
+</html>
+
